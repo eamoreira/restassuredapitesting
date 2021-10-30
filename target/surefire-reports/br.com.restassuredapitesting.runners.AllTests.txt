@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: br.com.restassuredapitesting.runners.AllTests
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 28.388 s <<< FAILURE! - in br.com.restassuredapitesting.runners.AllTests
+validarAlteracaoDeUmaReservaUtilizandoBasicAuth(br.com.restassuredapitesting.tests.booking.tests.PutBookingTest)  Time elapsed: 1.165 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <403>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.PutBookingTest.validarAlteracaoDeUmaReservaUtilizandoBasicAuth(PutBookingTest.java:56)
+

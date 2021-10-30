@@ -22,4 +22,17 @@ public class PutBookingRequest {
         return put;
     }
 
+    @Step("Atualiza uma reserva específica com o basic auth")
+    public Response updateBookingBasicAuth(int id) {
+
+        Response put = given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
+                .header("Authorisation","Basic YWRtaW46cGFzc3dvcmQxMjM=")
+                .when()
+                .body(bookingsPayloads.payloadValidBooking().toString())
+                .put("booking/" + id);
+        return put;
+    }
+
 }

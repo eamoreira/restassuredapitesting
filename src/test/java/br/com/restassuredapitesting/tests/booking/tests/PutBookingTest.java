@@ -39,4 +39,22 @@ public class PutBookingTest extends BaseTest {
                 .body("size()", greaterThan(0));
     }
 
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(AllTests.class)
+    @DisplayName("Alterar uma reserva somente utilizando o basic auth")
+    public void validarAlteracaoDeUmaReservaUtilizandoBasicAuth() {
+        int primeiroId = getBookingRequest.bookingReturnIds()
+                .then()
+                .statusCode(200)
+                .extract()
+                .path("[0].bookingid");
+
+
+        putBookingRequest.updateBookingBasicAuth(primeiroId)
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+    }
+
 }

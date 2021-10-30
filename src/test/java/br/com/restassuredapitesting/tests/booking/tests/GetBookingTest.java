@@ -46,4 +46,88 @@ public class GetBookingTest extends BaseTest {
                 .body(matchesJsonSchema(new File(Utils.getSchemaBasePath("booking", "bookings"))));
     }
 
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno de uma reserva especifica por id")
+    public void validaFiltroDeReservaPorId() {
+
+        getBookingRequest.bookingReturnPorId()
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro por firstname")
+    public void validaFiltroDeReservaPorFirstName() {
+
+        getBookingRequest.bookingReturnPorFirstName()
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro por lastname")
+    public void validaFiltroDeReservaPorLastName() {
+
+        getBookingRequest.bookingReturnPorLastName()
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro por checkin")
+    public void validaFiltroDeReservaPorCheckin() {
+
+        getBookingRequest.bookingReturnPorCheckin()
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro por checkout")
+    public void validaFiltroDeReservaPorCheckout() {
+
+        getBookingRequest.bookingReturnPorCheckout()
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro por checkin e checkout")
+    public void validaFiltroDeReservaPeloCheckinECheckout() {
+        getBookingRequest.bookingReturnPorCheckinECheckout()
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category({AllTests.class, ContractTests.class})
+    @DisplayName("Garantir o retorno do filtro pelo firstname, checkin e checkout")
+    public void validaFiltroDeReservaPeloFirstNameCheckinECheckout() {
+        getBookingRequest.bookingReturnPorFirstNameCheckinECheckout()
+                .then()
+                .statusCode(200);
+    }
 }
